@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+    }
+
+    .dropbtn {
+      /*button of 3 dots */
+      background-color: whitesmoke;
+      width: 20px;
+      height: 28px;
+      padding: 8px;
+      border-color: lightgrey;
+      cursor: pointer;
+      position: relative;
+      left: 750px;
+      top: 69px;
+      border-radius: 2px;
+    }
+
+    .dot1 {
+      /* dot 1*/
+      width: 2px;
+      height: 2px;
+      margin: 2px 0 0;
+      background-color: grey;
+    }
+
+    .dot2 {
+      /* dot 2 */
+      width: 2px;
+      height: 2px;
+      margin: 2px 0 0;
+      background-color: grey;
+    }
+
+    .dot3 {
+      /* dot3 */
+      width: 2px;
+      height: 2px;
+      margin: 2px 0;
+      background-color: grey;
+    }
+
+    .dropbtn:hover,
+    /* Color change on hovering the 3 dots button */
+    .dropbtn:focus {
+      background-color: lightsteelblue;
+    }
+
+    .dropdown {
+      /* Position of dropdown(main menu) */
+      position: relative;
+      display: inline-block;
+
+    }
+
+
+
+    .dropdown-content {
+      /* For the dropdown content of main menu */
+      display: none;
+      position: absolute;
+      left: 777px;
+      top: 70px;
+      z-index: 5;
+      background-color: whitesmoke;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(226, 83, 83, 0.2);
+
+    }
+
+    .dropdown-content a {
+      /* The text inside main menu */
+      color: black;
+      padding: 7px;
+      text-decoration: none;
+      display: block;
+
+    }
+
+    .download {
+      /* The download button */
+      background-color: lightseagreen;
+      border-radius: 2px;
+      position: relative;
+      left: 735px;
+      top: 64px;
+      width: 100px;
+      height: 30px;
+      border-color: cadetblue;
+
+    }
+
+    .print {
+      /*Print button */
+      background-color: lightskyblue;
+      border-radius: 2px;
+      position: relative;
+      left: 740px;
+      top: 64px;
+      width: 57px;
+      height: 30px;
+      border-color: cornflowerblue;
+
+
+    }
+
+
+
+    .modify {
+      /* Class of 3 buttons for setting position */
+      position: relative;
+      top: 90px;
+      height: auto;
+
+    }
+
+    .add {
+      /* Add Button */
+      background-color: lightskyblue;
+      border-radius: 2px;
+      height: 30px;
+
+
+    }
+
+    .delete {
+      /* Delete Button */
+      background-color: rgb(21, 148, 226);
+      border-radius: 2px;
+      height: 30px;
+
+    }
+
+    .mod {
+      /* Modify Button */
+      background-color: rgb(9, 126, 199);
+      border-radius: 2px;
+      height: 30px;
+
+    }
+
+    /* The above classes are for styling and setting the postion of submenus */
+
+    .show {
+      display: block;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .menu ul {
+      list-style: none;
+      margin: 0;
+    }
+
+    .menu ul li ul {
+      display: none;
+    }
+
+    .menu ul li:hover ul {
+      display: block;
+      position: absolute;
+      right: -80px;
+      top: -2px;
+      background: white;
+      padding-right: 3px;
+
+    }
+
+    .menu ul li a:hover {
+      background: #ded6f8;
+      color: #553ca5;
+    }
+
+    .menu ul li {
+      padding: 2px 2px;
+      position: relative;
+      border-bottom: 1px solid lavender;
+    }
+
+    .arrow {
+      /* For the right arrow to be displayed in the main menu( > ) */
+      border: solid black;
+      border-width: 0 1px 1px 0;
+      display: inline-block;
+      padding: 3px;
+
+    }
+
+    .right {
+      transform: rotate(-45deg);
+      -webkit-transform: rotate(-45deg);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="modify">
+    <button class="add">Add</button>
+    <button class="delete">Delete</button>
+    <button class="mod">Modify</button>
+  </div>
+  <button class="download">Download</button>
+  <button class="print">Print</button>
+  <div class="dropdown">
+    <button onclick="myFunction()" class="dropbtn">
+      <div class="dot1"></div>
+      <div class="dot2"></div>
+      <div class="dot3"></div>
+    </button>
+    <div id="myDropdown" class="dropdown-content">
+      <div class="menu">
+        <ul>
+          <li><a href="pivot">Pivot</a></li>
+          <li><a href="view">View &emsp; &emsp; &emsp; &emsp;<i class="arrow right"></i></a>
+            <ul>
+              <li><a href="std">Standard</a></li>
+              <li><a href="com">Compact</a></li>
+            </ul>
+          </li>
+          <li><a href="con">Data &emsp; &emsp; &emsp; &emsp;<i class="arrow right"></i></a>
+            <ul>
+              <li><a href="Cdata">Clear Data</a></li>
+              <li><a href="Gdata">Get Data</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+
+  <script>
+    /* When the user clicks on the button, 
+    toggle between hiding and showing the dropdown content */
+    function myFunction() {
+      document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+
+
+
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function (event) {
+      if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+      }
+    }
+
+
+
+  </script>
+
+</body>
+
+</html>
